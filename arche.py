@@ -21,7 +21,7 @@ if a == 'kom':
     c = input('pliki jakie chcesz spakować: ')
     d = input('nazwa archiwum: ')
     if '.zip' in d:
-        os.system(f'zip -r {c} {d}')
+        os.system(f'zip -r {d} {c}')
     if '.rar' in d:
         os.system(f'rar a {d} {c}')
     if '.7z' in d:
