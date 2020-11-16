@@ -20,13 +20,27 @@ if a == 'kom':
     os.system('ls')
     c = input('pliki jakie chcesz spakować: ')
     d = input('nazwa archiwum: ')
+    e = input('chchcesz zabezpieczyć hasłem? (y/n): ')
+    if '.zip' or '.rar' or '.tar' or '.tar.xz' or '.tar.gz' not in d:
+        f = input('jakie hasło?: ')
+    else:
+        pass
     if '.zip' in d:
-        os.system(f'zip -r {d} {c}')
+        if e == 'n':
+            os.system(f'zip -r {d} {c}')
+        if e == 'y':
+            os.system(f'zip -re {d} {c}')
     if '.rar' in d:
-        os.system(f'rar a {d} {c}')
+        if e == 'y':
+            os.system(f'rar a {d} {c}')
+        if e == 'n':
+            os.system(f'rar a -p {d} {c}')
     if '.7z' in d:
-        os.system(f'7z a {d} {c}')
+        if e == 'y':
+            os.system(f'7z a {d} {c}')
+        if e == 'n':
+            os.system(f'7z a {d} {c} -p"{e}"')
     if '.tar' in d:
-        os.system(f'tar -cf {d} {c}')
+        os.system(f'tar cf {d} {c}')
     if '.tar.gz' or '.tar.xz' in d:
-        os.system(f'tar -czfv {d} {c}')    
+        os.system(f'tar -czfv {d} {c}')
